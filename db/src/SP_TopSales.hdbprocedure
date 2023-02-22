@@ -1,0 +1,12 @@
+PROCEDURE "SAPUI5GIT_DB_SP_TopSales" (IN amount INTEGER, OUT result "SAPUI5GIT_DB_TT_TopSales")
+  LANGUAGE SQLSCRIPT
+  SQL SECURITY INVOKER
+  READS SQL DATA
+  AS
+BEGIN
+  result = select ID, REGION as "region", COUNTRY as "country", AMOUNT as "amount", COMMENTS as "comments" 
+             from "SAPUI5GIT_DB_SALES"
+             where AMOUNT >= :amount
+             order by AMOUNT desc
+             ;
+END

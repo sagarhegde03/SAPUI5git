@@ -1,0 +1,1 @@
+namespace SAPUI5git.db;
